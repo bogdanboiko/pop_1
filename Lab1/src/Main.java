@@ -3,19 +3,16 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        MyThread myThread1 = new MyThread(1);
-        MyThread myThread2 = new MyThread(2);
-        MyThread myThread3 = new MyThread(3);
-
-        myThread1.start();
-        myThread2.start();
-        myThread3.start();
-
         ArrayList<Timer> timerList = new ArrayList<>();
 
-        timerList.add(new Timer(10, myThread1));
-        timerList.add(new Timer(8, myThread2));
-        timerList.add(new Timer(5, myThread3));
+        int quantity = 4;
+        ThreadManager manager = new ThreadManager(quantity);
+
+        for(int i = 0; i < quantity; i++) {
+            timerList.add(new Timer((int) Math.round(Math.random() * 20),  manager.getThreadList().get(i)));
+        }
+
+        manager.startThreads();
 
         BreakThread breakThread = new BreakThread(timerList);
 
