@@ -1,7 +1,0 @@
-<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
-  <assemblyIdentity
-     name="gps.zlib1"
-     version="1.0.2021.0423"
-     processorArchitecture="amd64" type="win32" />
-  <file name="zlib1.dll" />
-</assembly>
