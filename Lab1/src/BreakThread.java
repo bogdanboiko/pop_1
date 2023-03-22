@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.function.Consumer;
 
 public class BreakThread implements Runnable {
     private final ArrayList<Timer> threadTimers;
 
     public BreakThread(ArrayList<Timer> threadTimers) {
         threadTimers.sort(Comparator.comparingInt(Timer::getSecs));
-        threadTimers.forEach(timer -> System.out.println(timer.getSecs()));
         this.threadTimers = threadTimers;
     }
     @Override

@@ -2,15 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ThreadManager {
-    private int threadQuantity;
     private List<MyThread> threadList;
 
-    public ThreadManager(int threadQuantity) {
-        this.threadQuantity = threadQuantity;
+    public ThreadManager(int threadQuantity, int[] countSteps) {
         ArrayList<MyThread> threadList = new ArrayList<>();
 
         for(int i = 0; i < threadQuantity; i++) {
-            threadList.add(new MyThread(i));
+            threadList.add(new MyThread(i, countSteps[i]));
         }
 
         this.threadList = threadList;
