@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        int storageSize = 3;
-        int itemNumbers = 10;
+        int storageSize = 2;
+        int itemNumbers = 15;
 
-        int producerQuantity = 7;
+        int producerQuantity = 4;
         int consumerQuantity = 5;
 
         Manager manager = new Manager(storageSize);
