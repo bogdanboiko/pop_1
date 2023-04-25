@@ -16,17 +16,13 @@ public class Consumer implements Runnable {
         for (int i = 0; i < itemNumbers; i++) {
             String item;
             try {
-                manager.empty.acquire();
-                Thread.sleep(1000);
-                manager.access.acquire();
+                manager.getConsumerAccess();
 
                 item = manager.storage.get(0);
                 manager.storage.remove(0);
                 System.out.println("Consumer " + consumerId + " took " + item);
 
-                manager.access.release();
-                manager.full.release();
-
+                manager.releaseConsumer();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

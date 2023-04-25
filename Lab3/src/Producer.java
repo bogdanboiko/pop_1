@@ -15,14 +15,11 @@ public class Producer implements Runnable {
     public void run() {
         for (int i = 0; i < itemNumbers; i++) {
             try {
-                manager.full.acquire();
-                manager.access.acquire();
-
+                manager.getProducerAccess();
                 manager.storage.add("item " + i);
                 System.out.println("Producer " + producerId +" Added item " + i);
 
-                manager.access.release();
-                manager.empty.release();
+                manager.releaseProducer();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
